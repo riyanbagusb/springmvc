@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Selamat Datang Spring Boot</title>
+		<!-- CSS only -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	</head>
+	<body>
+		<h2>Belajar Web Menggunakan Spring Boot</h2>
+		
+		<div class="container">
+			<h2 class="h4">List Mahasiswa</h2>
+			<table class="table table-striped" id="#DTable" data-page-length='2'>
+				<tr>
+					<th>NIM</th>
+					<th>Nama</th>
+					<th>IPK</th>
+					<th>Jurusan</th>
+					<th>Action</th>
+				</tr>
+				<tr th:each="mhs : ${mahasiswas}">
+					<td th:text="${mhs.nim}"></td>
+					<td th:text="${mhs.nama}"></td>
+					<td th:text="${mhs.ipk}"></td>
+					<td th:text="${mhs.jurusan}"></td>
+					<td>
+						<a href="#">Edit</a>
+						<span> | </span>
+						<a href="#">Hapus</a>
+						<span> | </span>
+						<a href="#">Detail</a>
+					</td>
+				</tr>
+			</table>
+			<div class="row">
+			    <div class="col-sm-6">
+			    	<div sd:pagination-summary="">info</div>
+			    </div>
+			    <div class="col-sm-6">
+			    	<nav class="pull-right">
+					<ul class="pagination" sd:pagination-split="7" sd:pagination="full">
+						<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+					   	<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+					</ul>
+				</nav>
+			    </div>
+			</div>
+		</div>
+	</body>
+</html>
